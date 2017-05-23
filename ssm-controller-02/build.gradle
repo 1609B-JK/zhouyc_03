@@ -1,0 +1,10 @@
+group 'com.jk'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'war'
+
+dependencies {
+    //依赖于service
+    compile project (":ssm-service-02")
+}
+
