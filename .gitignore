@@ -1,0 +1,6 @@
+# 项目忽略规则
+.gradle/*
+.idea/*
+out/*
+*.iml
+build/*
