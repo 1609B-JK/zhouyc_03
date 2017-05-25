@@ -6,6 +6,7 @@ import com.jk.entity.user.UserResponse;
 import com.jk.service.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -23,7 +24,7 @@ public class UserController {
 
     @RequestMapping("login")
     @ResponseBody
-    public ResultData login(UserRequest userRequest) {
+    public ResultData login(@RequestBody UserRequest userRequest) {
         String msg = "成功";
         int code = 200;
         Object data = null;
@@ -48,7 +49,7 @@ public class UserController {
 
     @RequestMapping("user-repeat")
     @ResponseBody
-    public ResultData selectUserByUserAccount(UserRequest userRequest) {
+    public ResultData selectUserByUserAccount(@RequestBody UserRequest userRequest) {
         String msg = "成功";
         int code = 200;
         Object data = null;
@@ -67,7 +68,7 @@ public class UserController {
 
     @RequestMapping("regedit")
     @ResponseBody
-    public ResultData regedit(UserRequest userRequest) {
+    public ResultData regedit(@RequestBody UserRequest userRequest) {
         String msg = "成功";
         int code = 200;
         Object data = null;
