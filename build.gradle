@@ -9,9 +9,9 @@ subprojects {
     apply plugin: 'java'
 
     //编码环境jdk版本
-    sourceCompatibility = 1.7
+    sourceCompatibility = 1.8
     //编译时jdk版本
-    targetCompatibility = 1.7
+    targetCompatibility = 1.8
 
     //仓库的配置
     repositories {
