@@ -1,0 +1,14 @@
+package com.jk.mapper.word;
+
+import com.jk.entity.word.WordRequest;
+import com.jk.entity.word.WordResponse;
+
+import java.util.List;
+
+/**
+ * Created by lx on 2017/5/27.
+ */
+public interface WordMapper {
+
+    List<WordResponse> selectWordListByKeyWord(WordRequest wordRequest);
+}

@@ -11,6 +11,16 @@ public class Banner implements Serializable {
 
     private String bannerTitle;
 
+    private String bannerContent;
+
+    public String getBannerContent() {
+        return bannerContent;
+    }
+
+    public void setBannerContent(String bannerContent) {
+        this.bannerContent = bannerContent;
+    }
+
     private String bannerImgPath;
 
     private String bannerLinkUrl;

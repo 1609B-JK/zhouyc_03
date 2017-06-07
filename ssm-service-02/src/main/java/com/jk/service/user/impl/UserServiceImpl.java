@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -55,4 +56,36 @@ public class UserServiceImpl implements UserService {
         }
         return flag;
     }
+
+    @Override
+    public List<UserResponse> selectUser(UserRequest userRequest) {
+        return userMapper.selectUser(userRequest);
+    }
+
+    public int selectUserCount(UserRequest userRequest) {
+
+        return userMapper.selectUserCount(userRequest);
+    }
+
+    @Override
+    public void insertUser(UserRequest userRequest) {
+        userMapper.insertUserInfo(userRequest);
+    }
+
+    @Override
+    public void deleteUserByUserID(UserRequest userRequest) {
+        userMapper.deleteUserByUserID(userRequest);
+    }
+
+    @Override
+    public UserResponse selectUserByUserID(UserRequest userRequest) {
+        return userMapper.selectUserByUserID(userRequest);
+    }
+
+    @Override
+    public void updateUserByUserID(UserRequest userRequest) {
+        userMapper.updateUserByUserID(userRequest);
+    }
+
+
 }

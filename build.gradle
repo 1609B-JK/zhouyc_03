@@ -16,7 +16,7 @@ subprojects {
     //仓库的配置
     repositories {
         //配置私服
-        maven {url "http://192.168.31.200:8081/nexus/content/groups/public/"}
+        maven {url "http://localhost:8081/nexus/content/groups/public/"}
         //maven中央仓库
         mavenCentral()
     }
@@ -86,7 +86,7 @@ subprojects {
 
         //数据库驱动
         compile "mysql:mysql-connector-java:5.1.23"
-        compile "com.jk.oracle:ojdbc14:1.1.14"
+        compile "com.jk.oracle:ojdbc14:1.0.14"
 
         //连接池
         compile "com.alibaba:druid:1.0.12"
@@ -96,6 +96,19 @@ subprojects {
 
         //log4j
         compile "log4j:log4j:1.2.17"
+
+        //wss4j
+        compile group: 'wss4j', name: 'wss4j', version: '1.5.1'
+
+        //cxf框架
+        compile group: 'org.apache.cxf', name: 'cxf-rt-frontend-jaxws', version: '2.7.18'
+        compile group: 'org.apache.cxf', name: 'cxf-rt-transports-http', version: '2.7.18'
+
+        //拼音
+        compile group: 'com.belerweb', name: 'pinyin4j', version: '2.5.0'
+
+        //freemarker模板
+        compile group: 'org.freemarker', name: 'freemarker', version: '2.3.20'
     }
 
 }

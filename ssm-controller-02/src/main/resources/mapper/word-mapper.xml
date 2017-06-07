@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >  
+<mapper namespace="com.jk.mapper.word.WordMapper">
+
+
+    <select id="selectWordListByKeyWord" parameterType="wordRequest" resultType="wordResponse" >
+        SELECT * FROM (SELECT w.* , rownum r FROM (SELECT
+                t_id as "wordID",
+                t_name as "wordName"
+                FROM t_check_word
+                WHERE 1=1
+            <if test="null != pinYin"  >
+               AND  (t_pinyin LIKE '%'||#{pinYin}) OR (t_pinyin LIKE #{pinYin}||'%')
+           </if>
+          ORDER BY t_id desc) w
+        WHERE rownum <![CDATA[<=]]>10) w1 WHERE r >=1
+
+    </select>
+
+</mapper>   

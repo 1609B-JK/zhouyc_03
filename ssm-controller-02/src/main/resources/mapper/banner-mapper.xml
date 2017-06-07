@@ -8,7 +8,7 @@
           t_title as "bannerTitle",
           t_imgpath as "bannerImgPath",
           t_linkurl as "bannerLinkUrl"
-      FROM t_banners
+      FROM t_banners WHERE t_typeid = 1
     </select>
 
 </mapper>   

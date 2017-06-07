@@ -36,4 +36,56 @@
         #{userPwd})
     </insert>
 
+
+    <select id="selectUser" parameterType="userRequest" resultType="userResponse">
+        select * from
+        (select u1.* , rownum r from
+        (select u.t_id as "userID",
+        u.t_account as "userAccount",
+        u.t_pwd as "userPwd"
+        from t_use u where 1=1
+        <if test="null != userAccount">
+            and u.t_account LIKE '%'||#{userAccount}||'%'
+        </if>
+        ) u1
+        where rownum <![CDATA[<=]]> #{endPos}) u2
+        where r >= #{startPos}
+    </select>
+
+    <select id="selectUserCount" parameterType="userRequest" resultType="int">
+        select count(u.t_id) from t_use u where 1=1
+        <if test="null != userAccount">
+            and u.t_account LIKE '%'||#{userAccount}||'%'
+        </if>
+    </select>
+
+    <insert id="insertUserInfo" parameterType="userRequest">
+        <selectKey resultType="int" keyProperty="userID" order="BEFORE">
+            SELECT t_use_seq.nextval as "userID" FROM dual
+        </selectKey>
+        INSERT INTO t_use
+        (t_id,t_account,t_pwd)
+        VALUES
+        (#{userID},#{userAccount}, #{userPwd})
+    </insert>
+
+    <delete id="deleteUserByUserID" parameterType="userRequest">
+        DELETE FROM t_use WHERE t_id = #{userID}
+    </delete>
+
+    <select id="selectUserByUserID" parameterType="userRequest" resultType="userResponse">
+        SELECT u.t_id AS "userID",
+        u.t_account AS "userAccount",
+        u.t_pwd AS "userPwd"
+        FROM t_use u WHERE u.t_id = #{userID}
+    </select>
+
+    <update id="updateUserByUserID" parameterType="userRequest">
+        UPDATE t_use u SET
+        u.t_account = #{userAccount} ,
+        u.t_pwd = #{userPwd}
+        WHERE u.t_id = #{userID}
+    </update>
+
+
 </mapper>   

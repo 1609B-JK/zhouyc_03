@@ -1,11 +1,13 @@
 package com.jk.entity.user;
 
+import common.Page;
+
 import java.io.Serializable;
 
 /**
  * Created by lenovo on 2017/5/23.
  */
-public class User implements Serializable {
+public class User extends Page implements Serializable {
 
     private int userID;
 

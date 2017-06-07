@@ -12,5 +12,6 @@
   </head>
   <body>
 天王盖地虎，小鸡炖蘑菇----好吃
+  <a href="test1.jhtml">查询信息</a>
   </body>
 </html>
